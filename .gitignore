@@ -1,0 +1,14 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.env
+.env.*
+.DS_Store
+.vscode/
+.idea/
+data/processed/
+*.pdf
+*.zip
