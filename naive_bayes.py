@@ -1,8 +1,7 @@
-"""Train, evaluate, and run the project's Multinomial Naive Bayes experiment.
+"""Train and evaluate Multinomial Naive Bayes on coffee review text.
 
-The classifier uses review word counts, as in the original notebook. Text
-cleaning is shared with preprocess.py; standardized numeric features are not
-used by this text model. Evaluation fits vocabulary on its training split only.
+The classifier uses word counts from cleaned reviews. Text cleaning is shared
+with preprocess.py. Evaluation fits vocabulary on its training split only.
 """
 
 from __future__ import annotations
@@ -31,7 +30,7 @@ from preprocess import clean_review
 
 @dataclass
 class EvaluationResult:
-    """Holdout model, metrics, and predictions with original row positions."""
+    """Holdout model, metrics, and predictions with input row positions."""
 
     model: Pipeline
     metrics: dict
@@ -49,7 +48,7 @@ def build_model() -> Pipeline:
 
 
 def load_reviews(frame: pd.DataFrame) -> pd.Series:
-    """Extract reviews without requiring the metadata used by other models."""
+    """Read review text while preserving input row order."""
     if "review" not in frame.columns or frame.empty:
         raise ValueError("Features CSV must contain a review column and at least one row.")
     return frame["review"].fillna("").astype(str).reset_index(drop=True)

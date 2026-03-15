@@ -57,7 +57,7 @@ def clean_review(text: str) -> str:
 
 
 def prepare_features(frame: pd.DataFrame) -> pd.DataFrame:
-    """Validate inputs and clean features while retaining the original row order.
+    """Validate inputs and clean features while retaining input row order.
 
     Missing roast values default to Medium-Dark. Existing roast values are
     preserved. IDs, saved CSV indices, and labels are omitted.
