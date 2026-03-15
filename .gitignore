@@ -10,5 +10,6 @@ __pycache__/
 .vscode/
 .idea/
 data/processed/
+artifacts/
 *.pdf
 *.zip
